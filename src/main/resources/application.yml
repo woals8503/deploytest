@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://{엔드포인트}:3306/{db이름}?createDatabaseIfNotExist=true
+    username: {user}
+    password: {password}
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 100
+  #    defer-datasource-initialization: true
+  #        use_sql_comments: true
+  data:
+    web:
+      pageable:
+        default-page-size: 100
+
+  logging.level:
+    org.hibernate.SQL: debug
+#    org.hibernate.type: trace
